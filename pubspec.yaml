@@ -1,0 +1,23 @@
+name: easy_localization_loader
+description: Easy Localization Loader custom assets loaders for easy_localization (Json, CSV, http, API ...)
+# author: AISSAT abdelwahab <mr.aissat@gmail.com>
+homepage: https://github.com/aissat/easy_localization_loader
+issue_tracker: https://github.com/aissat/easy_localization_loader/issues
+
+version: 0.0.1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  http: ^0.12.0+2
+  csv: ^4.0.3
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  # easy_localization: ^2.1.0+2
+  pedantic: ^1.8.0+1
+  flutter_test:
+    sdk: flutter
+
