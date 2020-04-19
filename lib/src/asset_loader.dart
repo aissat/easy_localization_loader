@@ -1,6 +1,1 @@
-import 'dart:ui';
-
-abstract class AssetLoader {
-  const AssetLoader();
-  Future<Map<String, dynamic>> load(String path, Locale locale);
-}
+export 'package:easy_localization/src/asset_loader.dart' show AssetLoader;
