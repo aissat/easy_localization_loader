@@ -17,6 +17,8 @@
 - [x] JSON (JsonAssetLoader)
 - [x] CSV (CsvAssetLoader)
 - [x] HTTP (HttpAssetLoader)
+- [x] XML (XmlAssetLoader, XmlSingleAssetLoader)
+- [x] Yaml (YamlAssetLoader, YamlSingleAssetLoader)
 - [x] FILE (FileAssetLoader)
 
 ### Configuration
