@@ -18,6 +18,7 @@ class XmlAssetLoader extends AssetLoader {
   @override
   Future<Map<String, dynamic>> load(String path, Locale locale) async {
     var localePath = getLocalePath(path, locale);
+    log('easy localization loader: load xml file $localePath');
     var doc = xml.parse(await rootBundle.loadString(localePath));
     doc.normalize();
     return convertXmlNodeToMap(doc.lastChild);
@@ -31,11 +32,12 @@ class XmlSingleAssetLoader extends AssetLoader {
   @override
   Future<Map<String, dynamic>> load(String path, Locale locale) async {
     if (xmlData == null) {
+      log('easy localization loader: load xml file $path');
       var doc = xml.parse(await rootBundle.loadString(path));
       doc.normalize();
       xmlData = convertXmlNodeToMap(doc.lastChild);
     } else {
-      log('easy localization: Xml already loaded, read cache');
+      log('easy localization loader: Xml already loaded, read cache');
     }
     return xmlData[locale.toString()];
   }
