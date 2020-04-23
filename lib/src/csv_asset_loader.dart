@@ -14,9 +14,10 @@ class CsvAssetLoader extends AssetLoader {
   @override
   Future<Map<String, dynamic>> load(String path, Locale locale) async {
     if (csvParser == null) {
+      log('easy localization loader: load csv file $path');
       csvParser = CSVParser(await rootBundle.loadString(path));
     } else {
-      log('easy localization: CSV parser already loaded');
+      log('easy localization loader: CSV parser already loaded, read cache');
     }
     return csvParser.getLanguageMap(locale.toString());
   }
