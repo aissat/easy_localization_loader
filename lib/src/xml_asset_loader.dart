@@ -6,7 +6,6 @@ import 'package:xml/xml.dart' as xml;
 
 import 'asset_loader.dart';
 
-
 //Loader for multiple xml files
 class XmlAssetLoader extends AssetLoader {
   String getLocalePath(String basePath, Locale locale) {
