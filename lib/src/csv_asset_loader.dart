@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 
 import 'asset_loader.dart';
 import 'package:csv/csv.dart';
+
 //
 // load example/resources/langs/langs.csv
 //
@@ -22,8 +23,6 @@ class CsvAssetLoader extends AssetLoader {
     return csvParser.getLanguageMap(locale.toString());
   }
 }
-
-
 
 class CSVParser {
   final String fieldDelimiter;

@@ -6,9 +6,6 @@ import 'package:xml/xml.dart' as xml;
 
 import 'asset_loader.dart';
 
-import 'package:easy_localization/src/easy_localization_app.dart'
-    show localeToString;
-
 //Loader for multiple xml files
 class XmlAssetLoader extends AssetLoader {
   String getLocalePath(String basePath, Locale locale) {

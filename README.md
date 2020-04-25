@@ -1,4 +1,4 @@
-## Custom assets loaders for [Easy Localization](https://github.com/aissat/easy_localization/blob/master) package 
+## Custom assets loaders for [Easy Localization](https://github.com/aissat/easy_localization) package 
 
 ![Pub Version](https://img.shields.io/pub/v/easy_localization_loader?style=flat-square)
 ![Code Climate issues](https://img.shields.io/github/issues/aissat/easy_localization_loader?style=flat-square)
@@ -7,8 +7,8 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/aissat/easy_localization_loader?style=flat-square)
 ![GitHub forks](https://img.shields.io/github/forks/aissat/easy_localization_loader?style=flat-square)
 ![GitHub stars](https://img.shields.io/github/stars/aissat/easy_localization_loader?style=flat-square)
-![Coveralls github branch](https://img.shields.io/coveralls/github/aissat/easy_localization/dev?style=flat-square)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/aissat/easy_localization/Flutter%20Tester?longCache=true&style=flat-square&logo=github)
+<!-- ![Coveralls github branch](https://img.shields.io/coveralls/github/aissat/easy_localization/dev?style=flat-square) -->
+<!-- ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/aissat/easy_localization/Flutter%20Tester?longCache=true&style=flat-square&logo=github) -->
 ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/aissat/easy_localization_loader?style=flat-square)
 ![GitHub license](https://img.shields.io/github/license/aissat/easy_localization_loader?style=flat-square)
 
