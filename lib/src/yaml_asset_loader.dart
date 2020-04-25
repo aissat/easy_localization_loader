@@ -6,8 +6,6 @@ import 'package:yaml/yaml.dart';
 
 import 'asset_loader.dart';
 
-import 'package:easy_localization/src/easy_localization_app.dart'
-    show localeToString;
 
 //Loader for multiple yaml files
 class YamlAssetLoader extends AssetLoader {
