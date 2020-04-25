@@ -6,7 +6,6 @@ import 'package:flutter/services.dart';
 
 import 'asset_loader.dart';
 
-
 // asset loader to be used when doing integration tests
 // default AssetLoader suffers from this issue
 // https://github.com/flutter/flutter/issues/44182
@@ -17,4 +16,3 @@ class TestsAssetLoader extends AssetLoader {
     return json.decode(utf8.decode(byteData.buffer.asUint8List()));
   }
 }
-

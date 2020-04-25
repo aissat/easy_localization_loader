@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'asset_loader.dart';
 
-
 //
 //
 //

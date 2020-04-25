@@ -6,7 +6,6 @@ import 'package:yaml/yaml.dart';
 
 import 'asset_loader.dart';
 
-
 //Loader for multiple yaml files
 class YamlAssetLoader extends AssetLoader {
   String getLocalePath(String basePath, Locale locale) {
