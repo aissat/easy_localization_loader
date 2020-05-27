@@ -13,11 +13,6 @@ import 'package:csv/csv.dart';
 class CsvAssetLoader extends AssetLoader {
   CSVParser csvParser;
 
-/*
-String codetxt = await rootBundle.loadString('assets/file.csv');
-List<List<dynamic>> codeList = CsvToListConverter(csvSettingsDetector: d).convert(codetxt);
-print('codelist size ' + codeList.length.toString());*/
-
   @override
   Future<Map<String, dynamic>> load(String path, Locale locale) async {
     if (csvParser == null) {
