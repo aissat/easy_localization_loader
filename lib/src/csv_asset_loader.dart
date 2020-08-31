@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:ui';
 
+import 'package:csv/csv_settings_autodetection.dart';
 import 'package:flutter/services.dart';
 
 import 'asset_loader.dart';
@@ -29,8 +30,11 @@ class CSVParser {
   final String strings;
   final List<List<dynamic>> lines;
 
+  static final csvSettingsDetector =
+      FirstOccurrenceSettingsDetector(eols: ['\r\n', '\n']);
+
   CSVParser(this.strings, {this.fieldDelimiter = ','})
-      : lines = CsvToListConverter()
+      : lines = CsvToListConverter(csvSettingsDetector: csvSettingsDetector)
             .convert(strings, fieldDelimiter: fieldDelimiter);
 
   List getLanguages() {
