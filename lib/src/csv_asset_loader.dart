@@ -1,16 +1,16 @@
 import 'dart:developer';
 import 'dart:ui';
 
+import 'package:csv/csv.dart';
 import 'package:flutter/services.dart';
 
 import 'asset_loader.dart';
-import 'package:csv/csv.dart';
 
 //
 // load example/resources/langs/langs.csv
 //
 class CsvAssetLoader extends AssetLoader {
-  CSVParser csvParser;
+  CSVParser? csvParser;
 
   @override
   Future<Map<String, dynamic>> load(String path, Locale locale) async {
@@ -20,7 +20,7 @@ class CsvAssetLoader extends AssetLoader {
     } else {
       log('easy localization loader: CSV parser already loaded, read cache');
     }
-    return csvParser.getLanguageMap(locale.toString());
+    return csvParser!.getLanguageMap(locale.toString());
   }
 }
 
