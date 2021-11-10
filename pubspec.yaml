@@ -16,6 +16,8 @@ dependencies:
   xml: ^5.0.2
   flutter:
     sdk: flutter
+  connectivity_plus: ^2.0.2
+  path_provider: ^2.0.6
 
 dev_dependencies:
   pedantic: ^1.11.0
