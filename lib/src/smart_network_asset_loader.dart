@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:ui';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart' as paths;
 
@@ -65,9 +66,8 @@ class SmartNetworkAssetLoader extends AssetLoader {
   Future<bool> localeExists(String localePath) => Future.value(true);
 
   Future<bool> isInternetConnectionAvailable() async {
-    // ConnectivityResult connectivityResult =
-    //     await (Connectivity().checkConnectivity());
-    // if (connectivityResult == ConnectivityResult.none) return false;
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.none) return false;
 
     final result = await Future.any(
         [InternetAddress.lookup('google.com'), Future.delayed(timeout)]);
