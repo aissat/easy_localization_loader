@@ -66,14 +66,18 @@ class SmartNetworkAssetLoader extends AssetLoader {
   Future<bool> localeExists(String localePath) => Future.value(true);
 
   Future<bool> isInternetConnectionAvailable() async {
-    var connectivityResult = await (Connectivity().checkConnectivity());
-    if (connectivityResult == ConnectivityResult.none) return false;
-
-    final result = await Future.any(
-        [InternetAddress.lookup('google.com'), Future.delayed(timeout)]);
-
-    if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-      return true;
+    final connectivityResult = await Connectivity().checkConnectivity();
+    if (connectivityResult == ConnectivityResult.none) {
+      return false;
+    } else {
+      try {
+        final result = await InternetAddress.lookup('google.com');
+        if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+          return true;
+        }
+      } on SocketException catch (_) {
+        return false;
+      }
     }
 
     return false;
