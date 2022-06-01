@@ -13,7 +13,7 @@ dependencies:
   http: ^0.13.1
   csv: ^5.0.0
   yaml: ^3.1.0
-  xml: ^5.0.2
+  xml: ^6.1.0
   flutter:
     sdk: flutter
 
