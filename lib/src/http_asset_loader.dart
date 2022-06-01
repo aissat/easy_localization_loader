@@ -21,7 +21,7 @@ class HttpAssetLoader extends AssetLoader {
           .then((response) => json.decode(response.body.toString()));
     } catch (e) {
       //Catch network exceptions
-      return Future.value();
+      return Future.value({});
     }
   }
 }
