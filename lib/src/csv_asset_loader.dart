@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'dart:ui';
 
 import 'package:csv/csv.dart';
+import 'package:csv/csv_settings_autodetection.dart';
 import 'package:flutter/services.dart';
 
 import 'asset_loader.dart';
@@ -24,14 +25,46 @@ class CsvAssetLoader extends AssetLoader {
   }
 }
 
+/// Parses [csvString] into [lines]
+///
+/// (Copied from [CsvToListConverter])
+///
+/// The default values for [fieldDelimiter], [eol] are consistent with
+/// [rfc4180](http://tools.ietf.org/html/rfc4180).
+///
+/// Note that by default invalid values are allowed and no exceptions are
+/// thrown.
 class CSVParser {
-  final String fieldDelimiter;
-  final String strings;
+  final String csvString;
   final List<List<dynamic>> lines;
+  final String? fieldDelimiter;
+  final String? eol;
+  /// Enables automatic detection of the following
+  ///
+  /// [eols]: '\r\n' '\n'
+  ///
+  /// [fieldDelimiters]: ',' '\t'
+  ///
+  /// corresponding arguments must be [null]
+  final bool useAutodetect;
 
-  CSVParser(this.strings, {this.fieldDelimiter = ','})
-      : lines = CsvToListConverter()
-            .convert(strings, fieldDelimiter: fieldDelimiter);
+  CSVParser(
+    this.csvString, {
+    this.fieldDelimiter,
+    this.eol,
+    this.useAutodetect = true,
+  }) : lines = CsvToListConverter().convert(
+          csvString,
+          fieldDelimiter: fieldDelimiter,
+          eol: eol,
+          csvSettingsDetector:
+              useAutodetect && fieldDelimiter == null && eol == null
+                  ? FirstOccurrenceSettingsDetector(
+                      eols: ['\r\n', '\n'],
+                      fieldDelimiters: [',', '\t'],
+                    )
+                  : null,
+        );
 
   List getLanguages() {
     return lines.first.sublist(1, lines.first.length);
