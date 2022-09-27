@@ -49,7 +49,7 @@ class SmartNetworkAssetLoader extends AssetLoader {
     // local cache duration was reached or no internet access but prefer local file to assets
     if (string == '' &&
         await localTranslationExists(locale.toString(),
-            ignoreCacheDuration: false)) {
+            ignoreCacheDuration: true)) {
       string = await loadFromLocalFile(locale.toString());
     }
 
@@ -136,6 +136,7 @@ class SmartNetworkAssetLoader extends AssetLoader {
   Future<void> saveTranslation(String localeName, String content) async {
     var file = File(await getFilenameForLocale(localeName));
     await file.create(recursive: true);
+    await file.writeAsString(content);
     return print('saved');
   }
 
