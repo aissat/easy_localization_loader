@@ -1,6 +1,7 @@
 library easy_localization_loader;
 
 export 'package:easy_localization_loader/src/file_asset_loader.dart';
+export 'package:easy_localization_loader/src/arb_asset_loader.dart';
 export 'package:easy_localization_loader/src/json_asset_loader.dart';
 export 'package:easy_localization_loader/src/http_asset_loader.dart';
 export 'package:easy_localization_loader/src/csv_asset_loader.dart';

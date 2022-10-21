@@ -1,4 +1,4 @@
-## Custom assets loaders for [Easy Localization](https://github.com/aissat/easy_localization) package 
+## Custom assets loaders for [Easy Localization](https://github.com/aissat/easy_localization) package
 
 ![Pub Version](https://img.shields.io/pub/v/easy_localization_loader?style=flat-square)
 ![Code Climate issues](https://img.shields.io/github/issues/aissat/easy_localization_loader?style=flat-square)
@@ -15,6 +15,7 @@
 ### Supported formats
 
 - [x] JSON (JsonAssetLoader)
+- [x] ARB (ArbAssetLoader)
 - [x] CSV (CsvAssetLoader)
 - [x] HTTP (HttpAssetLoader)
 - [x] XML (XmlAssetLoader, XmlSingleAssetLoader)
@@ -30,7 +31,7 @@ dependencies:
   #Easy Localization main package
   easy_localization: <last_version>
 
-    # stable version install from https://pub.dev/packages
+  # stable version install from https://pub.dev/packages
   easy_localization_loader: <last_version>
 
   # Dev version install from git REPO
@@ -42,14 +43,13 @@ dependencies:
 2. Change assetLoader and patch
 
 ```dart
-...
-void main(){
-  runApp(EasyLocalization(
-    child: MyApp(),
-    supportedLocales: [Locale('en', 'US'), Locale('ar', 'DZ')],
-    path: 'resources/langs/langs.csv',
-    assetLoader: CsvAssetLoader()
-  ));
+...void main(){
+runApp(EasyLocalization(
+child: MyApp(),
+supportedLocales: [Locale('en', 'US'), Locale('ar', 'DZ')],
+path: 'resources/langs/langs.csv',
+assetLoader: CsvAssetLoader()
+));
 }
 ...
 ```
