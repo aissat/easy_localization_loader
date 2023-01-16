@@ -12,17 +12,19 @@ import 'asset_loader.dart';
 //
 class CsvAssetLoader extends AssetLoader {
   CSVParser? csvParser;
+  final Locale? fallbackLocale;
+
+  CsvAssetLoader(this.fallbackLocale);
 
   @override
-  Future<Map<String, dynamic>> load(String path, Locale locale,
-      [Locale? localeForFillEmptyValues]) async {
+  Future<Map<String, dynamic>> load(String path, Locale locale) async {
     if (csvParser == null) {
       log('easy localization loader: load csv file $path');
       csvParser = CSVParser(await rootBundle.loadString(path));
     } else {
       log('easy localization loader: CSV parser already loaded, read cache');
     }
-    return csvParser!.getLanguageMap(locale.toString(), localeForFillEmptyValues?.toString());
+    return csvParser!.getLanguageMap(locale.toString(), fallbackLocale?.toString());
   }
 }
 
