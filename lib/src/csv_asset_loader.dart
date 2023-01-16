@@ -14,7 +14,7 @@ class CsvAssetLoader extends AssetLoader {
   CSVParser? csvParser;
   final Locale? fallbackLocale;
 
-  CsvAssetLoader(this.fallbackLocale);
+  CsvAssetLoader([this.fallbackLocale]);
 
   @override
   Future<Map<String, dynamic>> load(String path, Locale locale) async {
