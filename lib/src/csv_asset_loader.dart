@@ -14,14 +14,15 @@ class CsvAssetLoader extends AssetLoader {
   CSVParser? csvParser;
 
   @override
-  Future<Map<String, dynamic>> load(String path, Locale locale) async {
+  Future<Map<String, dynamic>> load(String path, Locale locale,
+      [Locale? localeForFillEmptyValues]) async {
     if (csvParser == null) {
       log('easy localization loader: load csv file $path');
       csvParser = CSVParser(await rootBundle.loadString(path));
     } else {
       log('easy localization loader: CSV parser already loaded, read cache');
     }
-    return csvParser!.getLanguageMap(locale.toString());
+    return csvParser!.getLanguageMap(locale.toString(), localeForFillEmptyValues?.toString());
   }
 }
 
@@ -39,6 +40,7 @@ class CSVParser {
   final List<List<dynamic>> lines;
   final String? fieldDelimiter;
   final String? eol;
+
   /// Enables automatic detection of the following
   ///
   /// [eols]: '\r\n' '\n'
@@ -70,12 +72,19 @@ class CSVParser {
     return lines.first.sublist(1, lines.first.length);
   }
 
-  Map<String, dynamic> getLanguageMap(String localeName) {
+  Map<String, dynamic> getLanguageMap(
+      String localeName, [String? fallbackLocale]) {
     final indexLocale = lines.first.indexOf(localeName);
+    final indexFallbackLocale =
+        fallbackLocale != null ? lines.first.indexOf(fallbackLocale) : -1;
 
     var translations = <String, dynamic>{};
     for (var i = 1; i < lines.length; i++) {
-      translations.addAll({lines[i][0]: lines[i][indexLocale]});
+      String localeValue = lines[i][indexLocale];
+      if (localeValue.isEmpty && indexFallbackLocale != -1) {
+        localeValue = lines[i][indexFallbackLocale];
+      }
+      translations.addAll({lines[i][0]: localeValue});
     }
     return translations;
   }
