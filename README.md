@@ -39,7 +39,7 @@ dependencies:
 
 ```
 
-2. Change assetLoader and patch
+2. Change assetLoader and path
 
 ```dart
 ...
