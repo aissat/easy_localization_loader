@@ -15,7 +15,7 @@ class HttpAssetLoader extends AssetLoader {
       var url = Uri.parse('$path/${locale.toLanguageTag()}.json');
       return http
           .get(url)
-          .then((response) => json.decode(response.body.toString()));
+          .then((response) => json.decode(utf8.decode(response.bodyBytes)));
     } catch (e) {
       //Catch network exceptions
       return {};
