@@ -2,12 +2,11 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:ui';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart' as paths;
 
 import 'package:flutter/services.dart';
-
-import 'asset_loader.dart';
 
 /// ```dart
 /// SmartNetworkAssetLoader(

@@ -1,15 +1,16 @@
 import 'dart:developer';
 import 'dart:ui';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 import 'package:xml/xml.dart';
 
-import 'asset_loader.dart';
-
 //Loader for multiple xml files
 class XmlAssetLoader extends AssetLoader {
+  const XmlAssetLoader();
+
   String getLocalePath(String basePath, Locale locale) {
-    return '$basePath/${localeToString(locale, separator: "-")}.xml';
+    return '$basePath/$locale.xml';
   }
 
   @override

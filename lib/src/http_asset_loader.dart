@@ -1,16 +1,13 @@
-//
-//
-//
-//
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:ui';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:http/http.dart' as http;
 
-import 'asset_loader.dart';
-
 class HttpAssetLoader extends AssetLoader {
+  const HttpAssetLoader();
+
   @override
   Future<Map<String, dynamic>> load(String path, Locale locale) async {
     log('easy localization loader: load http $path');
