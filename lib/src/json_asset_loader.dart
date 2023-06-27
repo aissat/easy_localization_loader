@@ -9,7 +9,7 @@ class JsonAssetLoader extends AssetLoader {
   const JsonAssetLoader();
 
   String getLocalePath(String basePath, Locale locale) {
-    return '$basePath/$locale.json';
+    return '$basePath/${locale.toStringWithSeparator(separator: "-")}.json';
   }
 
   @override

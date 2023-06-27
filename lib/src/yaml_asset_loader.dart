@@ -10,7 +10,7 @@ class YamlAssetLoader extends AssetLoader {
   const YamlAssetLoader();
 
   String getLocalePath(String basePath, Locale locale) {
-    return '$basePath/$locale.yaml';
+    return '$basePath/${locale.toStringWithSeparator(separator: "-")}.yaml';
   }
 
   @override

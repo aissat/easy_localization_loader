@@ -10,7 +10,7 @@ class XmlAssetLoader extends AssetLoader {
   const XmlAssetLoader();
 
   String getLocalePath(String basePath, Locale locale) {
-    return '$basePath/$locale.xml';
+    return '$basePath/${locale.toStringWithSeparator(separator: "-")}.xml';
   }
 
   @override
