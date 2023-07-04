@@ -3,9 +3,8 @@ import 'dart:ui';
 
 import 'package:csv/csv.dart';
 import 'package:csv/csv_settings_autodetection.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
-
-import 'asset_loader.dart';
 
 //
 // load example/resources/langs/langs.csv

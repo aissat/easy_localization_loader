@@ -2,13 +2,14 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:ui';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 
-import 'asset_loader.dart';
-
 class JsonAssetLoader extends AssetLoader {
+  const JsonAssetLoader();
+
   String getLocalePath(String basePath, Locale locale) {
-    return '$basePath/${localeToString(locale, separator: "-")}.json';
+    return '$basePath/${locale.toStringWithSeparator(separator: "-")}.json';
   }
 
   @override

@@ -1,15 +1,16 @@
 import 'dart:developer';
 import 'dart:ui';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 import 'package:yaml/yaml.dart';
 
-import 'asset_loader.dart';
-
 //Loader for multiple yaml files
 class YamlAssetLoader extends AssetLoader {
+  const YamlAssetLoader();
+
   String getLocalePath(String basePath, Locale locale) {
-    return '$basePath/${localeToString(locale, separator: "-")}.yaml';
+    return '$basePath/${locale.toStringWithSeparator(separator: "-")}.yaml';
   }
 
   @override

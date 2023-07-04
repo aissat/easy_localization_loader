@@ -3,13 +3,11 @@ import 'dart:developer';
 import 'dart:io';
 import 'dart:ui';
 
-import 'asset_loader.dart';
+import 'package:easy_localization/easy_localization.dart';
 
-//
-//
-//
-//
 class FileAssetLoader extends AssetLoader {
+  const FileAssetLoader();
+
   @override
   Future<Map<String, dynamic>> load(String path, Locale locale) async {
     final file = File(path);
