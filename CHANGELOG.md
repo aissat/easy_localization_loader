@@ -11,6 +11,7 @@
   - `TestsAssetLoader`
   - `XmlAssetLoader`
   - `YamlAssetLoader`
+- Fixed deprecations
 
 ## 0.0.1
 
