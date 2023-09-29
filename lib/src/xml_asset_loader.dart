@@ -51,7 +51,7 @@ Map<String, dynamic> convertXmlNodeToMap(XmlNode xmlNode) {
     if (entry is XmlElement) {
       switch (entry.children.length) {
         case 1:
-          map[entry.name.toString()] = entry.text;
+          map[entry.name.toString()] = entry.value;
           break;
         case 0:
           print(entry.name.toString());
