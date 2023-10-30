@@ -55,3 +55,19 @@ void main(){
 ```
 
 3. All done!.
+
+
+### Loaders Specification
+
+#### HttpAssetLoader
+
+In order to use HttpAssetLoader you must provide a path to a folder (i.e. base path) where all your translations are placed like `https://example.com/translations`
+
+Your translations should be created as separate files with `.json` extension. Placing translations as individual files reduces the size of the file to load on application init.
+Example:
+
+```
+translations/
+├── en-US.json
+└── uk-UA.json
+```

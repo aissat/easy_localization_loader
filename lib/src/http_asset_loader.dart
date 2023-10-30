@@ -12,10 +12,10 @@ class HttpAssetLoader extends AssetLoader {
   Future<Map<String, dynamic>> load(String path, Locale locale) async {
     log('easy localization loader: load http $path');
     try {
-      var url = Uri.parse(path);
+      var url = Uri.parse('$path/${locale.toLanguageTag()}.json');
       return http
           .get(url)
-          .then((response) => json.decode(response.body.toString()));
+          .then((response) => json.decode(utf8.decode(response.bodyBytes)));
     } catch (e) {
       //Catch network exceptions
       return {};
