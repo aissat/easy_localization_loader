@@ -60,8 +60,8 @@ class CSVParser {
               useAutodetect && fieldDelimiter == null && eol == null
                   ? FirstOccurrenceSettingsDetector(
                       fieldDelimiters: [',', ';', '\t'],
-                      textDelimiters: ['"', "'", "”"],
-                      textEndDelimiters: ['"', "'", "”"],
+                      textDelimiters: ['"', "'", '”'],
+                      textEndDelimiters: ['"', "'", '”'],
                       eols: ['\r\n', '\n'],
                     )
                   : null,
