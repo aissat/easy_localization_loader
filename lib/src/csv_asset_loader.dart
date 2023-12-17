@@ -59,8 +59,10 @@ class CSVParser {
           csvSettingsDetector:
               useAutodetect && fieldDelimiter == null && eol == null
                   ? FirstOccurrenceSettingsDetector(
+                      fieldDelimiters: [',', ';', '\t'],
+                      textDelimiters: ['"', "'", '”'],
+                      textEndDelimiters: ['"', "'", '”'],
                       eols: ['\r\n', '\n'],
-                      fieldDelimiters: [',', '\t'],
                     )
                   : null,
         );
