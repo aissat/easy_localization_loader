@@ -1,3 +1,7 @@
+## 2.0.1
+
+- Extend delimiters for csv loader
+
 ## 2.0.0
 
 - **BREAKING**: The local `AssetLoader` class deleted, now using the one from
