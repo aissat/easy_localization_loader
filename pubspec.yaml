@@ -12,6 +12,7 @@ environment:
 dependencies:
   connectivity_plus: ^5.0.1
   csv: ^5.0.1
+  dio: ^5.4.2+1
   easy_localization: ^3.0.3
   flutter: { sdk: flutter }
   http: ^1.1.0
