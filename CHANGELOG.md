@@ -1,3 +1,9 @@
+## 2.0.3
+- Update Flutter SDK requirement to >=3.4.0
+- Update connectivity_plus package to ^7.0.0
+- Update easy_localization package to ^3.0.8 and other dependencies to the latest versions
+- Update the linter from pedantic to flutter_lints
+
 ## 2.0.2
 - Update connectivity_plus package to ^6.0.3
 - Update easy_localization package to ^3.0.7
