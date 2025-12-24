@@ -46,6 +46,7 @@ class CSVParser {
   final List<List<dynamic>> lines;
   final String? fieldDelimiter;
   final String? eol;
+
   /// Enables automatic detection of the following
   ///
   /// [eols]: '\r\n' '\n'
@@ -60,20 +61,34 @@ class CSVParser {
     this.fieldDelimiter,
     this.eol,
     this.useAutodetect = true,
-  }) : lines = CsvToListConverter().convert(
-          csvString,
-          fieldDelimiter: fieldDelimiter,
-          eol: eol,
-          csvSettingsDetector:
-              useAutodetect && fieldDelimiter == null && eol == null
-                  ? FirstOccurrenceSettingsDetector(
-                      fieldDelimiters: [',', ';', '\t'],
-                      textDelimiters: ['"', "'", '”'],
-                      textEndDelimiters: ['"', "'", '”'],
-                      eols: ['\r\n', '\n'],
-                    )
-                  : null,
+  }) : lines = _convertN(
+          CsvToListConverter().convert(
+            csvString,
+            fieldDelimiter: fieldDelimiter,
+            eol: eol,
+            csvSettingsDetector:
+                useAutodetect && fieldDelimiter == null && eol == null
+                    ? FirstOccurrenceSettingsDetector(
+                        fieldDelimiters: [',', ';', '\t'],
+                        textDelimiters: ['"', "'", '”'],
+                        textEndDelimiters: ['"', "'", '”'],
+                        eols: ['\r\n', '\n'],
+                      )
+                    : null,
+          ),
         );
+
+  static List<List<dynamic>> _convertN(List<List<dynamic>> lines) {
+    // converts //n to /n
+    lines.forEach((lineList) {
+      lineList.asMap().forEach((key, value) {
+        if ((value is String) && value.contains('\\n')) {
+          lineList[key] = value.replaceAll('\\n', '\n');
+        }
+      });
+    });
+    return lines;
+  }
 
   List getLanguages() {
     return lines.first.sublist(1, lines.first.length);
