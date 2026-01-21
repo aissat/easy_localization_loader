@@ -6,3 +6,4 @@ export 'package:easy_localization_loader/src/smart_network_asset_loader.dart';
 export 'package:easy_localization_loader/src/tests_asset_loader.dart';
 export 'package:easy_localization_loader/src/xml_asset_loader.dart';
 export 'package:easy_localization_loader/src/yaml_asset_loader.dart';
+export 'package:easy_localization_loader/src/combination_loader.dart';

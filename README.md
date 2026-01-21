@@ -20,6 +20,7 @@
 - [x] XML (XmlAssetLoader, XmlSingleAssetLoader)
 - [x] Yaml (YamlAssetLoader, YamlSingleAssetLoader)
 - [x] FILE (FileAssetLoader)
+- [x] Combination (CombinationLoader)
 
 ### Configuration
 
